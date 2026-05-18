@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHE-SHIELD | Premium Women Safety Store</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary: #ff2e63;
+            --secondary: #3e61a7;
+            --accent: #08d9d6;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--secondary);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://media.gettyimages.com/id/2161509467/photo/businesswoman-putting-on-her-seat-belt-in-car.jpg?s=612x612&w=0&k=20&c=fRgik3arT19faS_YpNH9fZVpMvh7_wqXNKeFPS505mo=');
+                     
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-main {
+            padding: 15px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            background: #e62254;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 46, 99, 0.3);
+        }
+
+        /* --- STATS SECTION --- */
+        .stats {
+            padding: 60px 8%;
+            background: var(--secondary);
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-box h2 {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        /* --- PRODUCT SECTION --- */
+        .products-section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .section-title div {
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+        }
+
+        /* --- FEATURES / WHY US --- */
+        .features {
+            background: var(--gray);
+            padding: 100px 8%;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-item i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* --- SAFETY TIPS SECTION --- */
+        .safety-tips {
+            padding: 100px 8%;
+            background: var(--white);
+        }
+
+        .tip-card {
+            background: #fff0f3;
+            padding: 30px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 20px;
+            border-radius: 0 15px 15px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 80px 8% 30px;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover { color: var(--primary); }
+
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+            .stats { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/917690822190" class="floating-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">SHE-SHIELD</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">Safety Tips</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>YOUR SAFETY IS OUR POWER</h1>
+            <p>Don't be a victim. Empower yourself with our high-grade self-defense tools. Discreet, Legal, and Powerful.</p>
+            <a href="#products" class="btn-main">Shop Tools Now</a>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats">
+        <div class="stat-box">
+            <h2>15k+</h2>
+            <p>Women Empowered</p>
+        </div>
+        <div class="stat-box">
+            <h2>100%</h2>
+            <p>Discreet Delivery</p>
+        </div>
+        <div class="stat-box">
+            <h2>24/7</h2>
+            <p>Customer Care</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+     <section class="products-section" id="products">
+        <div class="section-title">
+            <h2>Defensive Gear Store</h2>
+            <div></div>
+            <p style="margin-top: 15px;">High-quality tools for personal protection</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/pepper-safety-device/o/p/r/defence-power-women-self-defence-pepper-spray-for-safety-original-imagkuzmaugayjbz.jpeg?q=70" alt="Pepper Spray">
+                </div>
+                <div class="product-info">
+                    <h3>Pro-X Pepper Spray</h3>
+                    <p>Pocket-sized, reaches up to 18 feet. Instant effect.</p>
+                    <div class="price">₹499</div>
+                    <button class="whatsapp-btn" onclick="buyOnWhatsApp('Pro-X Pepper Spray', '499')">
+                        <i class="fab fa-whatsapp"></i> BUY NOW
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://media.istockphoto.com/id/1196329135/photo/stun-gun-with-blue-electric-wave-standing-on-dark-surface.jpg?s=612x612&w=0&k=20&c=qy3J0ahbLgMx9aTnl-GuBeLhVdWDqha9w_SYyjU3zY0=" alt="Stun Gun">
+                </div>
+                <div class="product-info">
+                    <h3>Heavy Duty Stun Gun</h3>
+                    <p>8 million volts with built-in LED flashlight.</p>
+                    <div class="price">₹1,299</div>
+                    <button class="whatsapp-btn" onclick="buyOnWhatsApp('Heavy Duty Stun Gun', '1299')">
+                        <i class="fab fa-whatsapp"></i> BUY NOW
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://vibesafe.in/cdn/shop/files/Baton_0000_1.jpg?v=1716044143&width=1946" alt="Baton">
+                </div>
+                <div class="product-info">
+                    <h3>Tactical Steel Baton</h3>
+                    <p>Retractable steel stick. Easy to carry and swing.</p>
+                    <div class="price">₹899</div>
+                    <button class="whatsapp-btn" onclick="buyOnWhatsApp('Tactical Steel Baton', '899')">
+                        <i class="fab fa-whatsapp"></i> BUY NOW
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZduasvJ4mxNRAJYur-FDg8yvKdvTzCnmhhA&s" alt="Sonic Alarm">
+                </div>
+                <div class="product-info">
+                    <h3>Panic Sonic Alarm</h3>
+                    <p>130dB loud siren to attract immediate attention.</p>
+                    <div class="price">₹349</div>
+                    <button class="whatsapp-btn" onclick="buyOnWhatsApp('Panic Sonic Alarm', '349')">
+                        <i class="fab fa-whatsapp"></i> BUY NOW
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://imgs.search.brave.com/G1OSIYpLbyDznRGT7g4V8dEmyww5K1AHwAtGKqwejQI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9iZWF1/dGlmdWwtd29tYW4t/aG9sZGluZy1ndW4t/d2hpdGUtYmFja2dy/b3VuZC15b3VuZy0z/Mjk0MzcyOC5qcGc" alt="Self Defense Keychain">
+                </div>
+                <div class="product-info">
+                    <h3>woman sefty gun </h3>
+                    <p>this gun are look real but this is fake.</p>
+                    <div class="price">₹299</div>
+                    </div>
+                    <button class="whatsapp-btn" onclick="buyOnWhatsApp('woma safty gun ', '299')">
+                        <i class="fab fa-whatsapp"></i> BUY NOW
+                    </button>
+                </div>
+            </div>
+
+         
+    <!-- Why Us Section -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-truck-fast"></i>
+                <h3>Express Shipping</h3>
+                <p>We ship within 24 hours across India.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-box-open"></i>
+                <h3>Secret Packaging</h3>
+                <p>Product names are not mentioned on the box.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Legal Tools</h3>
+                <p>All items are compliant with Indian safety laws.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Tips -->
+    <section class="safety-tips" id="about">
+        <div class="section-title">
+            <h2>Essential Safety Tips</h2>
+            <div></div>
+        </div>
+        <div class="tip-card">
+            <h4>1. Stay Aware of Your Surroundings</h4>
+            <p>Avoid using headphones or looking at your phone while walking in isolated areas.</p>
+        </div>
+        <div class="tip-card">
+            <h4>2. Keep Your Tools Accessible</h4>
+            <p>Pepper spray or alarms should be in your hand or outer pocket, not at the bottom of your bag.</p>
+        </div>
+        <div class="tip-card">
+            <h4>3. Trust Your Instincts</h4>
+            <p>If a person or place feels unsafe, leave immediately. Your intuition is your best defense.</p>
+        </div>
+        <div class="tip-card">
+            <h4>4.Online Safety Tip for Women. </h4>
+            <p>Never share personal information like your home address, live location, passwords,
+                 OTPs, or private photos with strangers online — even if they seem friendly or trustworthy.</p>
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <h2 style="color: var(--primary); margin-bottom: 20px;">SHE-SHIELD</h2>
+        <p>Empowering women through safety and awareness.</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">&copy; 2026 SHE-SHIELD | For Orders Call: +91 7690822190</p>
+    </footer>
+
+    <script>
+        function buyOnWhatsApp(name, price) {
+            const phone = "917690822190";
+            const message = `*NEW ORDER INQUIRY*%0A-----------------------------------%0A*Item:* ${name}%0A*Price:* ₹${price}%0A*Status:* In Stock%0A--------------------------%0AHi, I want to buy this product. Please share payment details.`;
+            
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        // Navbar scroll effect
+        window.onscroll = function() {
+            const nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.style.padding = "10px 8%";
+                nav.style.background = "#fff";
+            } else {
+                nav.style.padding = "15px 8%";
+                nav.style.background = "rgba(255,255,255,0.95)";
+            }
+        };
+    </script>
+
+</body>
+</html> 
